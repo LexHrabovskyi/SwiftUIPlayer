@@ -8,6 +8,7 @@
 
 import Foundation
 import AVKit
+import SwiftUI
 import Combine
 
 final class AudioPlayer: AVPlayer, ObservableObject {
@@ -15,12 +16,14 @@ final class AudioPlayer: AVPlayer, ObservableObject {
     // MARK: Publishers
     @Published var currentTimeInSeconds: Double = 0.0
     @Published var isPlaying: Bool = false
+    
+    let playerStatusChanged = ObservableObjectPublisher()
+    let songDidEnd = ObservableObjectPublisher()
     var timeChanged: AnyPublisher<Double, Never>  {
         return $currentTimeInSeconds
             .eraseToAnyPublisher()
     }
     
-    private let songList = SongList()
     private var timeObserverToken: Any?
     
     override init() {
@@ -42,23 +45,38 @@ final class AudioPlayer: AVPlayer, ObservableObject {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        guard keyPath == "currentItem" else { return }
-        guard let item = currentItem  else { return }
+        if keyPath == "currentItem", let item = currentItem {
+            NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: item)
+        } else if keyPath == #keyPath(AVPlayerItem.status) {
             
-        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: item)
-        
+            let status: AVPlayerItem.Status
+            if let statusNumber = change?[.newKey] as? NSNumber {
+                status = AVPlayerItem.Status(rawValue: statusNumber.intValue)!
+            } else {
+                status = .unknown
+            }
+
+            // Switch over status value
+            switch status {
+            case .readyToPlay:
+                playerStatusChanged.send()
+            case .failed:
+                print(error as Any)
+            default:
+                print("not ready")
+            }
+            
+        }
+            
     }
     
     @objc private func playerDidFinishPlaying(_ notification: Notification) {
-        playNextSong()
+        isPlaying = false
+        songDidEnd.send()
     }
     
     // MARK: player controls
     func playPausePlayer() {
-        
-        if currentItem == nil {
-            setCurrentItem()
-        }
         
         if isPlaying {
             self.pause()
@@ -70,23 +88,11 @@ final class AudioPlayer: AVPlayer, ObservableObject {
         
     }
     
-    func playNextSong() {
-        songList.setNextSong()
-        setCurrentItem()
-        self.play()
-    }
-    
-    func playPreviuosSong() {
-        songList.setPreviousSong()
-        setCurrentItem()
-        self.play()
-    }
-    
-    private func setCurrentItem() {
+    func setCurrentItem(with song: Song) {
         
-        // TODO: https://developer.apple.com/documentation/avfoundation/media_assets_playback_and_editing/responding_to_playback_state_changes
-        guard let url = URL(string: songList.currentSong.url) else { return }
+        guard let url = URL(string: song.url) else { return }
         let playerItem = AVPlayerItem(url: url)
+        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.old, .new], context: nil)
         self.replaceCurrentItem(with: playerItem)
         
     }

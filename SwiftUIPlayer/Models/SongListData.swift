@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SongList {
+class Playlist: ObservableObject {
     
     let songListData: [Song] = load("SongList.json")
     var currentSong: Song {
@@ -19,35 +19,27 @@ class SongList {
     
     private var songIndex = 0
     
+    func setCurrentSong(_ song: Song) {
+        songIndex = songListData.firstIndex(of: song)!
+    }
+    
     func setNextSong() {
-        
-        if songIndex + 1 == songListData.count {
-            songIndex = 0
-        } else {
-            songIndex += 1
-        }
-        
+        let nowLastIndex = (songIndex + 1 == songListData.count)
+        songIndex = nowLastIndex ? 0 : songIndex + 1
     }
     
     func setPreviousSong() {
-        
-        if songIndex == 0 {
-            songIndex = songListData.count - 1
-        } else {
-            songIndex -= 1
-        }
-        
+        let nowFirstIndex = songIndex == 0
+        songIndex = nowFirstIndex ? songListData.count - 1 : songIndex - 1
     }
     
 }
 
-
-
 func load<T: Decodable>(_ filename: String, as type: T.Type = T.self) -> T {
+    
     let data: Data
     
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-    else {
+    guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
         fatalError("Couldn't find \(filename) in main bundle.")
     }
     
@@ -63,4 +55,5 @@ func load<T: Decodable>(_ filename: String, as type: T.Type = T.self) -> T {
     } catch {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
+    
 }

@@ -20,8 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = PlayerView()
-            .environmentObject(AudioPlayer())
+        
+        let player = AudioPlayer()
+        let playlist = Playlist()
+        
+        let contentView = SongListView()
+            .environmentObject(player)
+            .environmentObject(playlist)
+            .environmentObject(PlayerController(player: player, for: playlist))
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
