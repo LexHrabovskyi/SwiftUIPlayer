@@ -8,7 +8,40 @@
 
 import Foundation
 
-let songListData: [Song] = load("SongList.json")
+class SongList {
+    
+    let songListData: [Song] = load("SongList.json")
+    var currentSong: Song {
+        get {
+            return songListData[songIndex]
+        }
+    }
+    
+    private var songIndex = 0
+    
+    func setNextSong() {
+        
+        if songIndex + 1 == songListData.count {
+            songIndex = 0
+        } else {
+            songIndex += 1
+        }
+        
+    }
+    
+    func setPreviousSong() {
+        
+        if songIndex == 0 {
+            songIndex = songListData.count - 1
+        } else {
+            songIndex -= 1
+        }
+        
+    }
+    
+}
+
+
 
 func load<T: Decodable>(_ filename: String, as type: T.Type = T.self) -> T {
     let data: Data

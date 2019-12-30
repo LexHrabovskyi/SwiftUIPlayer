@@ -20,13 +20,11 @@ final class AudioPlayer: AVPlayer, ObservableObject {
             .eraseToAnyPublisher()
     }
     
-    private let songList = songListData
-    private var currentSong: Song? = nil
+    private let songList = SongList()
     private var timeObserverToken: Any?
     
     override init() {
         super.init()
-        currentSong = songList.first
         registerObserves()
     }
     
@@ -59,7 +57,7 @@ final class AudioPlayer: AVPlayer, ObservableObject {
     func playPausePlayer() {
         
         if currentItem == nil {
-            setCurrentItem(withSong: songList[0])
+            setCurrentItem()
         }
         
         if isPlaying {
@@ -73,19 +71,21 @@ final class AudioPlayer: AVPlayer, ObservableObject {
     }
     
     func playNextSong() {
-        // TODO
-        
+        songList.setNextSong()
+        setCurrentItem()
+        self.play()
     }
     
     func playPreviuosSong() {
-        // TODO
+        songList.setPreviousSong()
+        setCurrentItem()
+        self.play()
     }
     
-    private func setCurrentItem(withSong song: Song) {
+    private func setCurrentItem() {
         
         // TODO: https://developer.apple.com/documentation/avfoundation/media_assets_playback_and_editing/responding_to_playback_state_changes
-        guard let url = URL(string: song.url) else { return }
-        currentSong = song
+        guard let url = URL(string: songList.currentSong.url) else { return }
         let playerItem = AVPlayerItem(url: url)
         self.replaceCurrentItem(with: playerItem)
         
