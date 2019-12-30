@@ -11,26 +11,32 @@ import Foundation
 class Playlist: ObservableObject {
     
     let songListData: [Song] = load("SongList.json")
-    var currentSong: Song {
-        get {
-            return songListData[songIndex]
-        }
-    }
-    
-    private var songIndex = 0
+    var currentSong: Song? = nil
     
     func setCurrentSong(_ song: Song) {
-        songIndex = songListData.firstIndex(of: song)!
+         currentSong = song
     }
     
-    func setNextSong() {
-        let nowLastIndex = (songIndex + 1 == songListData.count)
-        songIndex = nowLastIndex ? 0 : songIndex + 1
-    }
-    
-    func setPreviousSong() {
-        let nowFirstIndex = songIndex == 0
-        songIndex = nowFirstIndex ? songListData.count - 1 : songIndex - 1
+    func setNextSong(_ backward: Bool = false) {
+        
+        guard let _ = currentSong else {
+            currentSong = songListData.first!
+            return
+        }
+        
+        let currentIndex = songListData.firstIndex(of: currentSong!)!
+        var nextIndex = 0
+        
+        if backward {
+            let zeroIndex = currentIndex == 0
+            nextIndex = zeroIndex ? songListData.count - 1 : currentIndex - 1
+        } else {
+            let lastIndex = (currentIndex == songListData.count - 1)
+            nextIndex = lastIndex ? 0 : currentIndex + 1
+        }
+        
+        currentSong = songListData[nextIndex]
+        
     }
     
 }

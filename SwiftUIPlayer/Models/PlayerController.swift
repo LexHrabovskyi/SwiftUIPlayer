@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import AVKit
+import Combine
 
 class PlayerController: ObservableObject {
     
@@ -25,11 +27,19 @@ class PlayerController: ObservableObject {
             return
         }
         
-        player.setCurrentItem(with: song)
-        player.playPausePlayer()
-        
         playlist.setCurrentSong(song)
-        // waiting for new status?
+        
+        // MARK: subscribing for beginning of song playing
+        var waitingForStatusChanging: AnyCancellable?
+        waitingForStatusChanging = player.timePlayerStatusChanged.sink { newStatus in
+            guard newStatus == .playing else { return }
+            
+            // TODO: set control panel
+            self.player.isPlaying = true
+            waitingForStatusChanging?.cancel()
+        }
+        
+        player.setCurrentItem(with: song)
         
     }
     

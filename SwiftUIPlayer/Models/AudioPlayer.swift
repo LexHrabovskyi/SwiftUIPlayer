@@ -17,7 +17,7 @@ final class AudioPlayer: AVPlayer, ObservableObject {
     @Published var currentTimeInSeconds: Double = 0.0
     @Published var isPlaying: Bool = false
     
-    let playerStatusChanged = ObservableObjectPublisher()
+    let timePlayerStatusChanged = PassthroughSubject<AVPlayer.TimeControlStatus, Never>()
     let songDidEnd = ObservableObjectPublisher()
     var timeChanged: AnyPublisher<Double, Never>  {
         return $currentTimeInSeconds
@@ -35,6 +35,7 @@ final class AudioPlayer: AVPlayer, ObservableObject {
     private func registerObserves() {
         
         self.addObserver(self, forKeyPath: "currentItem", options: [.new], context: nil)
+        self.addObserver(self, forKeyPath: #keyPath(timeControlStatus), options: [.old, .new], context: nil)
         let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         timeObserverToken = self.addPeriodicTimeObserver(forInterval: interval, queue: .main) {
             [weak self] _ in
@@ -47,24 +48,15 @@ final class AudioPlayer: AVPlayer, ObservableObject {
         
         if keyPath == "currentItem", let item = currentItem {
             NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: item)
-        } else if keyPath == #keyPath(AVPlayerItem.status) {
+        } else if keyPath == #keyPath(AVPlayer.timeControlStatus) {
             
-            let status: AVPlayerItem.Status
+            let status: AVPlayer.TimeControlStatus
             if let statusNumber = change?[.newKey] as? NSNumber {
-                status = AVPlayerItem.Status(rawValue: statusNumber.intValue)!
+                status = AVPlayer.TimeControlStatus(rawValue: statusNumber.intValue)!
             } else {
-                status = .unknown
+                status = .waitingToPlayAtSpecifiedRate
             }
-
-            // Switch over status value
-            switch status {
-            case .readyToPlay:
-                playerStatusChanged.send()
-            case .failed:
-                print(error as Any)
-            default:
-                print("not ready")
-            }
+            timePlayerStatusChanged.send(status)
             
         }
             
@@ -92,8 +84,8 @@ final class AudioPlayer: AVPlayer, ObservableObject {
         
         guard let url = URL(string: song.url) else { return }
         let playerItem = AVPlayerItem(url: url)
-        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.old, .new], context: nil)
         self.replaceCurrentItem(with: playerItem)
+        self.play()
         
     }
     
