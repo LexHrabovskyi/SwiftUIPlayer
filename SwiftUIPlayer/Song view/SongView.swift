@@ -13,7 +13,7 @@ struct SongView: View {
     @EnvironmentObject var player: AudioPlayer
     @EnvironmentObject var playerController: PlayerController
     
-    var song: Song
+    @State var song: Song
     
     var body: some View {
         VStack {
@@ -22,18 +22,11 @@ struct SongView: View {
                 Text(song.name)
                 
                 if self.playerController.isLoading {
-                    ActivityIndicator(isAnimating: .constant(true), style: .large)
+                    ActivityIndicator(isAnimating: .constant(true), style: .medium)
                 }
             }
             
-            Image(systemName: self.player.isPlaying && self.playerController.nowPlaying(song) ? "pause" : "play")
-                .resizable()
-                .frame(width: 36, height: 36)
-                .padding()
-                .onTapGesture {
-                    self.playerController.playOrPause(song: self.song)
-            }
-            
+            SongControlsView(song: $song)
             
             PlayerSlider(song: song)
             

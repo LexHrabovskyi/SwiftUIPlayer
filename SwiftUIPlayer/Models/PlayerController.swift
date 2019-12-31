@@ -27,6 +27,8 @@ class PlayerController: ObservableObject {
         self.playlist = playlist
     }
     
+    // MARK: player controls
+    
     func playOrPause(song: Song) {
         
         guard song != playlist.currentSong else {
@@ -49,6 +51,20 @@ class PlayerController: ObservableObject {
         
         player.setCurrentItem(with: song)
         
+    }
+    
+    func playNext() {
+        playlist.setNextSong()
+        playOrPause(song: playlist.currentSong!)
+    }
+    
+    func playPrevious() {
+        playlist.setNextSong(true)
+        playOrPause(song: playlist.currentSong!)
+    }
+    
+    func getCurrentSong() -> Song {
+        return playlist.currentSong!
     }
     
     // MARK: checking functions

@@ -14,7 +14,7 @@ struct PlayerSlider: View {
     @EnvironmentObject var playerController: PlayerController
 
     @State private var currentPlayerTime: Double = 0.0
-    @State var song: Song
+    var song: Song
     
     var body: some View {
         
