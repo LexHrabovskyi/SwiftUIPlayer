@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Song: Hashable, Codable, Identifiable {
+struct Song: Hashable, Codable, Identifiable, Equatable {
     
     let id: Int
     let name: String

@@ -85,6 +85,7 @@ final class AudioPlayer: AVPlayer, ObservableObject {
         guard let url = URL(string: song.url) else { return }
         let playerItem = AVPlayerItem(url: url)
         self.replaceCurrentItem(with: playerItem)
+        self.isPlaying = true
         self.play()
         
     }

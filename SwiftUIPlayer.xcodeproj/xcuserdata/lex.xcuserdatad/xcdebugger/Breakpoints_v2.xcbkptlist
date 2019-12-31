@@ -46,9 +46,9 @@
             filePath = "SwiftUIPlayer/Models/PlayerController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "nowPlaying(_:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "playOrPause(song:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -64,7 +64,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "playOrPause(song:)"
+            landmarkName = "init(player:for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -80,7 +80,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "playOrPause(song:)"
+            landmarkName = "init(player:for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

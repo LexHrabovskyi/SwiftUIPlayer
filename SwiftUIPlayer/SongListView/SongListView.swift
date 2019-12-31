@@ -16,18 +16,13 @@ struct SongListView: View {
     
     var body: some View {
         
-        List {
-            
-            ForEach(playlist.songListData) { song in
-                HStack {
-                    Image(systemName: self.playerController.nowPlaying(song) ? "pause" : "play")
-                        .onTapGesture {
-                            self.playerController.playOrPause(song: song)
-                    }
-                    Text(song.name)
+        NavigationView {
+            List {
+                ForEach(playlist.songListData) { song in
+                    SongRowView(song: song)
                 }
             }
-            
+            .navigationBarTitle("From soundhelix.com")
         }
         
         
@@ -49,3 +44,5 @@ struct ContentView_Previews: PreviewProvider {
     }
     
 }
+
+
