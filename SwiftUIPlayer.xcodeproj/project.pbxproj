@@ -19,6 +19,7 @@
 		D7EA82EC23B904F000C092A9 /* SongListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82EB23B904F000C092A9 /* SongListData.swift */; };
 		D7EA82EE23B904F600C092A9 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82ED23B904F600C092A9 /* Song.swift */; };
 		D7EA82F223B9079500C092A9 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82F123B9079500C092A9 /* AudioPlayer.swift */; };
+		D7ED675523BB052A00847299 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED675423BB052A00847299 /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D7EA82EB23B904F000C092A9 /* SongListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListData.swift; sourceTree = "<group>"; };
 		D7EA82ED23B904F600C092A9 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D7EA82F123B9079500C092A9 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		D7ED675423BB052A00847299 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				D7EA82D323B9046200C092A9 /* AppDelegate.swift */,
 				D7EA82D523B9046200C092A9 /* SceneDelegate.swift */,
 				D73A1F4F23BAF8BF0060293E /* SongListView */,
+				D7ED675323BB04F500847299 /* Other views */,
 				D7EA82EA23B904E400C092A9 /* Models */,
 				D7EA82E723B904A200C092A9 /* Resources */,
 				D7EA82D923B9046300C092A9 /* Assets.xcassets */,
@@ -115,6 +118,14 @@
 				D734513523B9D427002D2C48 /* PlayerController.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D7ED675323BB04F500847299 /* Other views */ = {
+			isa = PBXGroup;
+			children = (
+				D7ED675423BB052A00847299 /* ActivityIndicator.swift */,
+			);
+			path = "Other views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +207,7 @@
 				D734513623B9D427002D2C48 /* PlayerController.swift in Sources */,
 				D7EA82EE23B904F600C092A9 /* Song.swift in Sources */,
 				D73A1F5123BAF8DD0060293E /* SongRowView.swift in Sources */,
+				D7ED675523BB052A00847299 /* ActivityIndicator.swift in Sources */,
 				D7EA82F223B9079500C092A9 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

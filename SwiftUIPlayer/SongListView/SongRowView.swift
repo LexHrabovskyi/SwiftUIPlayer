@@ -15,6 +15,7 @@ struct SongRowView: View {
     @EnvironmentObject var playerController: PlayerController
     
     var body: some View {
+        
         HStack {
             Image(systemName: self.player.isPlaying && self.playerController.nowPlaying(song) ? "pause" : "play")
                 .resizable()
@@ -29,10 +30,12 @@ struct SongRowView: View {
             
             if self.playerController.nowLoading(song) {
                 Spacer()
-                Text("loading")
+                ActivityIndicator(isAnimating: .constant(true), style: .medium)
             }
         }
+        
     }
+    
 }
 
 struct SongRowView_Previews: PreviewProvider {
