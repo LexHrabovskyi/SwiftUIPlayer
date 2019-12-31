@@ -20,7 +20,8 @@ struct SongView: View {
             
             Text(song.name)
             
-            
+//            MPVolumeViewRepresenter()
+            VolumeView()
             
         }
     }
