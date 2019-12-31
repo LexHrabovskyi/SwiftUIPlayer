@@ -51,12 +51,17 @@ class PlayerController: ObservableObject {
         
     }
     
+    // MARK: checking functions
     func nowPlaying(_ song: Song) -> Bool {
         return player.isPlaying && playlist.currentSong == song
     }
     
     func nowLoading(_ song: Song) -> Bool {
         return nowPlaying(song) && isLoading
+    }
+    
+    func isCurrentSong(_ song: Song) -> Bool {
+        return playlist.currentSong == song
     }
     
 }

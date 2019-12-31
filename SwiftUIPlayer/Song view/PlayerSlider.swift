@@ -14,7 +14,7 @@ struct PlayerSlider: View {
     @EnvironmentObject var playerController: PlayerController
 
     @State private var currentPlayerTime: Double = 0.0
-    var song: Song
+    @State var song: Song
     
     var body: some View {
         
@@ -29,7 +29,7 @@ struct PlayerSlider: View {
             GeometryReader { geometry in
                 Slider(value: self.$currentPlayerTime, in: 0.0...self.song.lenght)
                     .onReceive(self.player.timeChanged) { _ in
-                        guard self.playerController.nowPlaying(self.song) else { self.currentPlayerTime = 0.0; return } // TODO: fix current time while pausing music
+                        guard self.playerController.isCurrentSong(self.song) else { self.currentPlayerTime = 0.0; return }
                         self.currentPlayerTime = self.player.currentTimeInSeconds
                 }
                 .gesture(DragGesture(minimumDistance: 0)
