@@ -22,6 +22,7 @@
 		D7ED675523BB052A00847299 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED675423BB052A00847299 /* ActivityIndicator.swift */; };
 		D7ED675723BB063600847299 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED675623BB063600847299 /* VolumeView.swift */; };
 		D7ED675923BB067300847299 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED675823BB067300847299 /* SongView.swift */; };
+		D7ED675C23BB0F7700847299 /* PlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED675B23BB0F7700847299 /* PlayerSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D7ED675423BB052A00847299 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D7ED675623BB063600847299 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		D7ED675823BB067300847299 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
+		D7ED675B23BB0F7700847299 /* PlayerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				D7ED675823BB067300847299 /* SongView.swift */,
+				D7ED675B23BB0F7700847299 /* PlayerSlider.swift */,
 			);
 			path = "Song view";
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				D7ED675723BB063600847299 /* VolumeView.swift in Sources */,
 				D7ED675923BB067300847299 /* SongView.swift in Sources */,
 				D7EA82EC23B904F000C092A9 /* SongListData.swift in Sources */,
+				D7ED675C23BB0F7700847299 /* PlayerSlider.swift in Sources */,
 				D7EA82D823B9046200C092A9 /* SongListView.swift in Sources */,
 				D734513623B9D427002D2C48 /* PlayerController.swift in Sources */,
 				D7EA82EE23B904F600C092A9 /* Song.swift in Sources */,

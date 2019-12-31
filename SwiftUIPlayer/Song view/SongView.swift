@@ -18,9 +18,25 @@ struct SongView: View {
     var body: some View {
         VStack {
             
-            Text(song.name)
+            HStack {
+                Text(song.name)
+                
+                if self.playerController.isLoading {
+                    ActivityIndicator(isAnimating: .constant(true), style: .large)
+                }
+            }
             
-//            MPVolumeViewRepresenter()
+            Image(systemName: self.player.isPlaying && self.playerController.nowPlaying(song) ? "pause" : "play")
+                .resizable()
+                .frame(width: 36, height: 36)
+                .padding()
+                .onTapGesture {
+                    self.playerController.playOrPause(song: self.song)
+            }
+            
+            
+            PlayerSlider(song: song)
+            
             VolumeView()
             
         }
