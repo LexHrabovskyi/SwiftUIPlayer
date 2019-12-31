@@ -27,6 +27,8 @@ struct SongRowView: View {
             
             Text(song.name)
                 .bold()
+                
+            NavigationLink(destination: SongView(song: song)) { Text("").frame(width: 3) }.opacity(0.01)
             
             if self.playerController.nowLoading(song) {
                 Spacer()
