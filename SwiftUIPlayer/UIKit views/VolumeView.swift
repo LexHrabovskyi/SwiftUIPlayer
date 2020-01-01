@@ -35,7 +35,7 @@ struct MPVolumeViewRepresenter: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MPVolumeView {
         let volumeView = MPVolumeView()
-        volumeView.showsRouteButton = false // TODO: deprecated
+//        volumeView.showsRouteButton = false // TODO: deprecated
         return volumeView
     }
     

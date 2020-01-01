@@ -20,11 +20,13 @@ class PlayerController: ObservableObject {
     }
     
     private let playlist: Playlist
-    private let player: AudioPlayer
+    fileprivate let player: AudioPlayer
+    private var remoteContol: RemotePlayerControl? = nil
     
     init(player: AudioPlayer, for playlist: Playlist) {
         self.player = player
         self.playlist = playlist
+        remoteContol = RemotePlayerControl(forController: self)
     }
     
     // MARK: player controls
@@ -45,7 +47,7 @@ class PlayerController: ObservableObject {
             
             guard newStatus == .playing else { return }
             
-            // TODO: set control panel
+            self.remoteContol?.updateNowPlaying()
             self.isLoading = false
             waitingForStatusChanging?.cancel()
         }
@@ -55,6 +57,7 @@ class PlayerController: ObservableObject {
     func rewindTime(to seconds: Double) {
         let timeCM = CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         player.seek(to: timeCM)
+        updateRemotePlayingTime(seconds: seconds)
     }
     
     func forward15Sec() {
@@ -85,6 +88,37 @@ class PlayerController: ObservableObject {
     
     func isCurrentSong(_ song: Song) -> Bool {
         return playlist.currentSong == song
+    }
+    
+}
+
+// MARK: extention for remote contols
+extension PlayerController {
+    
+    var isPlaying: Bool {
+        return player.isPlaying
+    }
+    
+    func remotePlay() -> Bool {
+        
+        guard !player.isPlaying, let _ = playlist.currentSong else { return false }
+        
+        player.playPausePlayer()
+        return true
+        
+    }
+    
+    func remotePause() -> Bool {
+        
+        guard player.isPlaying else { return false }
+        
+        player.playPausePlayer()
+        return true
+        
+    }
+    
+    func updateRemotePlayingTime(seconds: Double) {
+        remoteContol?.updateRemotePlayingTime(seconds)
     }
     
 }

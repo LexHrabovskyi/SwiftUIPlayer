@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D734513623B9D427002D2C48 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D734513523B9D427002D2C48 /* PlayerController.swift */; };
 		D73A1F5123BAF8DD0060293E /* SongRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A1F5023BAF8DD0060293E /* SongRowView.swift */; };
+		D74411B723BCB84500942FC6 /* RemotePlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74411B623BCB84500942FC6 /* RemotePlayerControl.swift */; };
+		D74411B923BCD25400942FC6 /* PlayerControllerForRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74411B823BCD25400942FC6 /* PlayerControllerForRemote.swift */; };
 		D79E7CDD23BB15E2009DC3E8 /* SongControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79E7CDC23BB15E2009DC3E8 /* SongControlsView.swift */; };
 		D7EA82D423B9046200C092A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82D323B9046200C092A9 /* AppDelegate.swift */; };
 		D7EA82D623B9046200C092A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82D523B9046200C092A9 /* SceneDelegate.swift */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		D734513523B9D427002D2C48 /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		D73A1F5023BAF8DD0060293E /* SongRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRowView.swift; sourceTree = "<group>"; };
+		D74411B623BCB84500942FC6 /* RemotePlayerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlayerControl.swift; sourceTree = "<group>"; };
+		D74411B823BCD25400942FC6 /* PlayerControllerForRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControllerForRemote.swift; sourceTree = "<group>"; };
 		D79E7CDC23BB15E2009DC3E8 /* SongControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongControlsView.swift; sourceTree = "<group>"; };
 		D7EA82D023B9046200C092A9 /* SwiftUIPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EA82D323B9046200C092A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				D7EA82ED23B904F600C092A9 /* Song.swift */,
 				D7EA82F123B9079500C092A9 /* AudioPlayer.swift */,
 				D734513523B9D427002D2C48 /* PlayerController.swift */,
+				D74411B823BCD25400942FC6 /* PlayerControllerForRemote.swift */,
+				D74411B623BCB84500942FC6 /* RemotePlayerControl.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,12 +226,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D74411B723BCB84500942FC6 /* RemotePlayerControl.swift in Sources */,
 				D7EA82D423B9046200C092A9 /* AppDelegate.swift in Sources */,
 				D7EA82D623B9046200C092A9 /* SceneDelegate.swift in Sources */,
 				D7ED675723BB063600847299 /* VolumeView.swift in Sources */,
 				D7ED675923BB067300847299 /* SongView.swift in Sources */,
 				D7EA82EC23B904F000C092A9 /* SongListData.swift in Sources */,
 				D79E7CDD23BB15E2009DC3E8 /* SongControlsView.swift in Sources */,
+				D74411B923BCD25400942FC6 /* PlayerControllerForRemote.swift in Sources */,
 				D7ED675C23BB0F7700847299 /* PlayerSlider.swift in Sources */,
 				D7EA82D823B9046200C092A9 /* SongListView.swift in Sources */,
 				D734513623B9D427002D2C48 /* PlayerController.swift in Sources */,
@@ -380,7 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lexhrabovskyi.SwiftUIPlayer.SwiftUIPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -400,7 +408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lexhrabovskyi.SwiftUIPlayer.SwiftUIPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
