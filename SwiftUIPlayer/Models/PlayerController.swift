@@ -28,7 +28,6 @@ class PlayerController: ObservableObject {
     }
     
     // MARK: player controls
-    
     func playOrPause(song: Song) {
         
         guard song != playlist.currentSong else {
@@ -53,14 +52,22 @@ class PlayerController: ObservableObject {
         
     }
     
-    func playNext() {
-        playlist.setNextSong()
-        playOrPause(song: playlist.currentSong!)
+    func rewindTime(to seconds: Double) {
+        let timeCM = CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        player.seek(to: timeCM)
     }
     
-    func playPrevious() {
-        playlist.setNextSong(true)
-        playOrPause(song: playlist.currentSong!)
+    func forward15Sec() {
+        guard let song = playlist.currentSong else { return }
+        let currentTime = player.currentTimeInSeconds
+        let forwardTime = song.lenght > currentTime + 15.0 ? currentTime + 15.0 : song.lenght
+        rewindTime(to: forwardTime)
+    }
+    
+    func backward15Sec() {
+        let currentTime = player.currentTimeInSeconds
+        let backwardTime = currentTime > 15.0 ? currentTime - 15.0 : 0.0
+        rewindTime(to: backwardTime)
     }
     
     func getCurrentSong() -> Song {

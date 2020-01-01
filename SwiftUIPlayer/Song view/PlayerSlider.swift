@@ -36,7 +36,8 @@ struct PlayerSlider: View {
                 .onChanged({ value in
                     
                     let coefficient = abs(Double(self.song.lenght) / Double(geometry.size.width))
-                    self.player.rewindTime(to: Double(value.location.x) * coefficient)
+                    self.playerController.rewindTime(to: Double(value.location.x) * coefficient)
+                    
                 }))
             }
             .frame(height: 30)

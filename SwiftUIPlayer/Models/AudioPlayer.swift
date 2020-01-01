@@ -90,10 +90,10 @@ final class AudioPlayer: AVPlayer, ObservableObject {
         
     }
     
-    func rewindTime(to seconds: Double) {
-        let timeCM = CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        self.seek(to: timeCM)
-    }
+//    func rewindTime(to seconds: Double) {
+//        let timeCM = CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+//        self.seek(to: timeCM)
+//    }
     
     // MARK: deiniting
     deinit {

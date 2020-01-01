@@ -20,12 +20,11 @@ struct SongControlsView: View {
             
             Spacer()
             
-            Image(systemName: "backward.end")
+            Image(systemName: "gobackward.15")
                 .resizable()
                 .frame(width: 24, height: 24)
                 .onTapGesture {
-                    self.playerController.playPrevious()
-                    self.song = self.playerController.getCurrentSong()
+                    self.playerController.backward15Sec()
             }
             
             Spacer()
@@ -40,12 +39,11 @@ struct SongControlsView: View {
             
             Spacer()
             
-            Image(systemName: "forward.end")
+            Image(systemName: "goforward.15")
                 .resizable()
                 .frame(width: 24, height: 24)
                 .onTapGesture {
-                    self.playerController.playNext()
-                    self.song = self.playerController.getCurrentSong()
+                    self.playerController.forward15Sec()
             }
             
             Spacer()
