@@ -10,7 +10,7 @@ import Foundation
 
 class Playlist: ObservableObject {
     
-    let songListData: [Song] = load("SongList.json")
+    let songList: [Song] = load("SongList.json")
     var currentSong: Song? = nil
     
     func setCurrentSong(_ song: Song) {
@@ -20,22 +20,22 @@ class Playlist: ObservableObject {
     func setNextSong(_ backward: Bool = false) {
         
         guard let _ = currentSong else {
-            currentSong = songListData.first!
+            currentSong = songList.first!
             return
         }
         
-        let currentIndex = songListData.firstIndex(of: currentSong!)!
+        let currentIndex = songList.firstIndex(of: currentSong!)!
         var nextIndex = 0
         
         if backward {
             let zeroIndex = currentIndex == 0
-            nextIndex = zeroIndex ? songListData.count - 1 : currentIndex - 1
+            nextIndex = zeroIndex ? songList.count - 1 : currentIndex - 1
         } else {
-            let lastIndex = (currentIndex == songListData.count - 1)
+            let lastIndex = (currentIndex == songList.count - 1)
             nextIndex = lastIndex ? 0 : currentIndex + 1
         }
         
-        currentSong = songListData[nextIndex]
+        currentSong = songList[nextIndex]
         
     }
     

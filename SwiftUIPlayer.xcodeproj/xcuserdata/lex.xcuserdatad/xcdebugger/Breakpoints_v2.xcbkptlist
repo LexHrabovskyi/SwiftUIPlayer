@@ -128,7 +128,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "updateNowPlaying()"
+            landmarkName = "updateRemotePlayingTime(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -143,9 +143,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "updateRemotePlayingTime(_:)"
-            landmarkType = "7">
+            endingLineNumber = "99">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

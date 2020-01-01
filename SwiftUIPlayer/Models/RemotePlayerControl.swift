@@ -62,19 +62,12 @@ final class RemotePlayerControl {
             if let positionChangeEvent = event as? MPChangePlaybackPositionCommandEvent {
                 let time = positionChangeEvent.positionTime
                 playerController?.rewindTime(to: time)
-                
-//                let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
-//                nowPlayingInfoCenter.nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = time
-//
-//
                 return .success
             }
 
             return .commandFailed
 
         }
-        
-        
         
     }
     

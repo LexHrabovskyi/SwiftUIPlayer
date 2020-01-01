@@ -18,13 +18,12 @@ struct SongListView: View {
         
         NavigationView {
             List {
-                ForEach(playlist.songListData) { song in
+                ForEach(playlist.songList) { song in
                     SongRowView(song: song)
                 }
             }
             .navigationBarTitle("From soundhelix.com")
         }
-        
         
     }
     
