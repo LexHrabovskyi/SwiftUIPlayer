@@ -56,6 +56,7 @@ final class AudioPlayer: AVPlayer, ObservableObject {
             } else {
                 status = .waitingToPlayAtSpecifiedRate
             }
+            
             timePlayerStatusChanged.send(status)
             
         }
@@ -89,11 +90,6 @@ final class AudioPlayer: AVPlayer, ObservableObject {
         self.play()
         
     }
-    
-//    func rewindTime(to seconds: Double) {
-//        let timeCM = CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-//        self.seek(to: timeCM)
-//    }
     
     // MARK: deiniting
     deinit {

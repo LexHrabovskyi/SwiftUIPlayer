@@ -37,18 +37,18 @@ class PlayerController: ObservableObject {
         
         playlist.setCurrentSong(song)
         isLoading = true
+        player.setCurrentItem(with: song)
         
         // MARK: subscribing for beginning of song playing
         var waitingForStatusChanging: AnyCancellable?
         waitingForStatusChanging = player.timePlayerStatusChanged.sink { newStatus in
+            
             guard newStatus == .playing else { return }
             
             // TODO: set control panel
             self.isLoading = false
             waitingForStatusChanging?.cancel()
         }
-        
-        player.setCurrentItem(with: song)
         
     }
     
