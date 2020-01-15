@@ -84,8 +84,8 @@ class PlayerManager: ObservableObject {
         rewindTime(to: backwardTime)
     }
     
-    func getCurrentSong() -> Song {
-        return playlist.currentSong!
+    func getCurrentSong() -> Song? {
+        return playlist.currentSong
     }
     
     func getPlayingDuration() -> Double? {

@@ -10,6 +10,12 @@
 		D734513623B9D427002D2C48 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D734513523B9D427002D2C48 /* PlayerManager.swift */; };
 		D73A1F5123BAF8DD0060293E /* SongRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A1F5023BAF8DD0060293E /* SongRowView.swift */; };
 		D74411B723BCB84500942FC6 /* RemotePlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74411B623BCB84500942FC6 /* RemotePlayerControl.swift */; };
+		D799EC3B23CF1EB6000EE6F5 /* SwiftUIPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799EC3A23CF1EB6000EE6F5 /* SwiftUIPlayerTests.swift */; };
+		D799EC4623CF1F27000EE6F5 /* SoundHelix-Song-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D799EC4523CF1F27000EE6F5 /* SoundHelix-Song-1.mp3 */; };
+		D799EC4823CF1F2D000EE6F5 /* SoundHelix-Song-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D799EC4723CF1F2D000EE6F5 /* SoundHelix-Song-2.mp3 */; };
+		D799EC4A23CF1F33000EE6F5 /* AudioPlayerMOCK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799EC4923CF1F33000EE6F5 /* AudioPlayerMOCK.swift */; };
+		D799EC4B23CF212C000EE6F5 /* SoundHelix-Song-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D799EC4523CF1F27000EE6F5 /* SoundHelix-Song-1.mp3 */; };
+		D799EC4C23CF212C000EE6F5 /* SoundHelix-Song-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D799EC4723CF1F2D000EE6F5 /* SoundHelix-Song-2.mp3 */; };
 		D79E7CDD23BB15E2009DC3E8 /* SongControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79E7CDC23BB15E2009DC3E8 /* SongControlsView.swift */; };
 		D7EA82D423B9046200C092A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82D323B9046200C092A9 /* AppDelegate.swift */; };
 		D7EA82D623B9046200C092A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82D523B9046200C092A9 /* SceneDelegate.swift */; };
@@ -26,10 +32,26 @@
 		D7ED675C23BB0F7700847299 /* PlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED675B23BB0F7700847299 /* PlayerSlider.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D799EC3D23CF1EB6000EE6F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7EA82C823B9046200C092A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7EA82CF23B9046200C092A9;
+			remoteInfo = SwiftUIPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		D734513523B9D427002D2C48 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		D73A1F5023BAF8DD0060293E /* SongRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRowView.swift; sourceTree = "<group>"; };
 		D74411B623BCB84500942FC6 /* RemotePlayerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlayerControl.swift; sourceTree = "<group>"; };
+		D799EC3823CF1EB6000EE6F5 /* SwiftUIPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D799EC3A23CF1EB6000EE6F5 /* SwiftUIPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPlayerTests.swift; sourceTree = "<group>"; };
+		D799EC3C23CF1EB6000EE6F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D799EC4523CF1F27000EE6F5 /* SoundHelix-Song-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SoundHelix-Song-1.mp3"; sourceTree = "<group>"; };
+		D799EC4723CF1F2D000EE6F5 /* SoundHelix-Song-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SoundHelix-Song-2.mp3"; sourceTree = "<group>"; };
+		D799EC4923CF1F33000EE6F5 /* AudioPlayerMOCK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerMOCK.swift; sourceTree = "<group>"; };
 		D79E7CDC23BB15E2009DC3E8 /* SongControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongControlsView.swift; sourceTree = "<group>"; };
 		D7EA82D023B9046200C092A9 /* SwiftUIPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EA82D323B9046200C092A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +71,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D799EC3523CF1EB6000EE6F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7EA82CD23B9046200C092A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,10 +97,31 @@
 			path = SongListView;
 			sourceTree = "<group>";
 		};
+		D799EC3923CF1EB6000EE6F5 /* SwiftUIPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D799EC3A23CF1EB6000EE6F5 /* SwiftUIPlayerTests.swift */,
+				D799EC4923CF1F33000EE6F5 /* AudioPlayerMOCK.swift */,
+				D799EC4423CF1F16000EE6F5 /* Test music */,
+				D799EC3C23CF1EB6000EE6F5 /* Info.plist */,
+			);
+			path = SwiftUIPlayerTests;
+			sourceTree = "<group>";
+		};
+		D799EC4423CF1F16000EE6F5 /* Test music */ = {
+			isa = PBXGroup;
+			children = (
+				D799EC4523CF1F27000EE6F5 /* SoundHelix-Song-1.mp3 */,
+				D799EC4723CF1F2D000EE6F5 /* SoundHelix-Song-2.mp3 */,
+			);
+			path = "Test music";
+			sourceTree = "<group>";
+		};
 		D7EA82C723B9046200C092A9 = {
 			isa = PBXGroup;
 			children = (
 				D7EA82D223B9046200C092A9 /* SwiftUIPlayer */,
+				D799EC3923CF1EB6000EE6F5 /* SwiftUIPlayerTests */,
 				D7EA82D123B9046200C092A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				D7EA82D023B9046200C092A9 /* SwiftUIPlayer.app */,
+				D799EC3823CF1EB6000EE6F5 /* SwiftUIPlayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +202,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D799EC3723CF1EB6000EE6F5 /* SwiftUIPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D799EC3F23CF1EB6000EE6F5 /* Build configuration list for PBXNativeTarget "SwiftUIPlayerTests" */;
+			buildPhases = (
+				D799EC3423CF1EB6000EE6F5 /* Sources */,
+				D799EC3523CF1EB6000EE6F5 /* Frameworks */,
+				D799EC3623CF1EB6000EE6F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D799EC3E23CF1EB6000EE6F5 /* PBXTargetDependency */,
+			);
+			name = SwiftUIPlayerTests;
+			productName = SwiftUIPlayerTests;
+			productReference = D799EC3823CF1EB6000EE6F5 /* SwiftUIPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D7EA82CF23B9046200C092A9 /* SwiftUIPlayer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7EA82E423B9046300C092A9 /* Build configuration list for PBXNativeTarget "SwiftUIPlayer" */;
@@ -174,10 +243,14 @@
 		D7EA82C823B9046200C092A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Александр";
 				TargetAttributes = {
+					D799EC3723CF1EB6000EE6F5 = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = D7EA82CF23B9046200C092A9;
+					};
 					D7EA82CF23B9046200C092A9 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -197,15 +270,27 @@
 			projectRoot = "";
 			targets = (
 				D7EA82CF23B9046200C092A9 /* SwiftUIPlayer */,
+				D799EC3723CF1EB6000EE6F5 /* SwiftUIPlayerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D799EC3623CF1EB6000EE6F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D799EC4623CF1F27000EE6F5 /* SoundHelix-Song-1.mp3 in Resources */,
+				D799EC4823CF1F2D000EE6F5 /* SoundHelix-Song-2.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7EA82CE23B9046200C092A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D799EC4B23CF212C000EE6F5 /* SoundHelix-Song-1.mp3 in Resources */,
+				D799EC4C23CF212C000EE6F5 /* SoundHelix-Song-2.mp3 in Resources */,
 				D7EA82E023B9046300C092A9 /* LaunchScreen.storyboard in Resources */,
 				D7EA82DD23B9046300C092A9 /* Preview Assets.xcassets in Resources */,
 				D7EA82DA23B9046300C092A9 /* Assets.xcassets in Resources */,
@@ -215,6 +300,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D799EC3423CF1EB6000EE6F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D799EC3B23CF1EB6000EE6F5 /* SwiftUIPlayerTests.swift in Sources */,
+				D799EC4A23CF1F33000EE6F5 /* AudioPlayerMOCK.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7EA82CC23B9046200C092A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +332,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D799EC3E23CF1EB6000EE6F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7EA82CF23B9046200C092A9 /* SwiftUIPlayer */;
+			targetProxy = D799EC3D23CF1EB6000EE6F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D7EA82DE23B9046300C092A9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -250,6 +352,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D799EC4023CF1EB6000EE6F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CH744BWJLN;
+				INFOPLIST_FILE = SwiftUIPlayerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexhrabovskyi.SwiftUIPlayer.SwiftUIPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIPlayer.app/SwiftUIPlayer";
+			};
+			name = Debug;
+		};
+		D799EC4123CF1EB6000EE6F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CH744BWJLN;
+				INFOPLIST_FILE = SwiftUIPlayerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexhrabovskyi.SwiftUIPlayer.SwiftUIPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIPlayer.app/SwiftUIPlayer";
+			};
+			name = Release;
+		};
 		D7EA82E223B9046300C092A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -407,6 +551,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D799EC3F23CF1EB6000EE6F5 /* Build configuration list for PBXNativeTarget "SwiftUIPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D799EC4023CF1EB6000EE6F5 /* Debug */,
+				D799EC4123CF1EB6000EE6F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D7EA82CB23B9046200C092A9 /* Build configuration list for PBXProject "SwiftUIPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

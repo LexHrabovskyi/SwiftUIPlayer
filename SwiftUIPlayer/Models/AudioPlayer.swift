@@ -11,7 +11,7 @@ import AVKit
 import SwiftUI
 import Combine
 
-final class AudioPlayer: AVPlayer, ObservableObject {
+class AudioPlayer: AVPlayer, ObservableObject {
     
     // MARK: Publishers
     @Published var currentTimeInSeconds: Double = 0.0

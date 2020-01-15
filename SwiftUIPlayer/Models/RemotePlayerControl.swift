@@ -79,7 +79,7 @@ final class RemotePlayerControl {
         let song = playerManager!.getCurrentSong()
         nowPlayingInfo[MPNowPlayingInfoPropertyExternalUserProfileIdentifier] = "SwiftUI Player"
         nowPlayingInfo[MPMediaItemPropertyTitle] = "SwiftUI Player"
-        nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = song.url
+        nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = song?.url ?? "no url"
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = playerManager!.isPlaying
         
         if let durationInSeconds = playerManager?.getPlayingDuration() {
