@@ -19,26 +19,29 @@ struct SongListView: View {
     var body: some View {
         
         NavigationView {
+            
             ZStack {
                 List {
                     ForEach(playlist.songList) { song in
                         SongRowView(song: song)
                     }
                 }
-                .navigationBarTitle("From soundhelix.com", displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: {self.playlist.updateList()}, label: {
-                    Image(systemName: "arrow.clockwise.icloud")
-            }))
                 
                 ActivityIndicator(isAnimating: self.$listIsLoading, style: .large)
                     .onReceive(self.playlist.$listIsLoading) { value in
                         self.listIsLoading = value
                 }
             }
+            .navigationBarTitle("From soundhelix.com", displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {self.playlist.updateList()}, label: {
+                Image(systemName: "arrow.clockwise.icloud")
+            }))
+            
         }
         .onAppear {
             self.playlist.updateList()
         }
+        
         
     }
     

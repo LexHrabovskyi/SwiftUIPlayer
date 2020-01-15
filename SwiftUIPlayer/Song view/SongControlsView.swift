@@ -10,7 +10,6 @@ import SwiftUI
 
 struct SongControlsView: View {
     
-    @EnvironmentObject var player: AudioPlayer // TODO: delete it!
     @EnvironmentObject var playerManager: PlayerManager
     @Binding var song: Song
     
@@ -29,13 +28,7 @@ struct SongControlsView: View {
             
             Spacer()
             
-            Image(systemName: self.player.isPlaying && self.playerManager.nowPlaying(song) ? "pause" : "play")
-                .resizable()
-                .frame(width: 36, height: 36)
-                .padding()
-                .onTapGesture {
-                    self.playerManager.playOrPause(song: self.song)
-            }
+            PlayPauseButton(song: song, size: 36)
             
             Spacer()
             

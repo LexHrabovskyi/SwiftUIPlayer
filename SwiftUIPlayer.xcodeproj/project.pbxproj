@@ -16,6 +16,7 @@
 		D799EC4A23CF1F33000EE6F5 /* AudioPlayerMOCK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799EC4923CF1F33000EE6F5 /* AudioPlayerMOCK.swift */; };
 		D799EC4B23CF212C000EE6F5 /* SoundHelix-Song-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D799EC4523CF1F27000EE6F5 /* SoundHelix-Song-1.mp3 */; };
 		D799EC4C23CF212C000EE6F5 /* SoundHelix-Song-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D799EC4723CF1F2D000EE6F5 /* SoundHelix-Song-2.mp3 */; };
+		D799EC4E23CF250C000EE6F5 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D799EC4D23CF250C000EE6F5 /* PlayPauseButton.swift */; };
 		D79E7CDD23BB15E2009DC3E8 /* SongControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79E7CDC23BB15E2009DC3E8 /* SongControlsView.swift */; };
 		D7EA82D423B9046200C092A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82D323B9046200C092A9 /* AppDelegate.swift */; };
 		D7EA82D623B9046200C092A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA82D523B9046200C092A9 /* SceneDelegate.swift */; };
@@ -52,6 +53,7 @@
 		D799EC4523CF1F27000EE6F5 /* SoundHelix-Song-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SoundHelix-Song-1.mp3"; sourceTree = "<group>"; };
 		D799EC4723CF1F2D000EE6F5 /* SoundHelix-Song-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SoundHelix-Song-2.mp3"; sourceTree = "<group>"; };
 		D799EC4923CF1F33000EE6F5 /* AudioPlayerMOCK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerMOCK.swift; sourceTree = "<group>"; };
+		D799EC4D23CF250C000EE6F5 /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
 		D79E7CDC23BB15E2009DC3E8 /* SongControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongControlsView.swift; sourceTree = "<group>"; };
 		D7EA82D023B9046200C092A9 /* SwiftUIPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EA82D323B9046200C092A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				D7ED675823BB067300847299 /* SongView.swift */,
 				D79E7CDC23BB15E2009DC3E8 /* SongControlsView.swift */,
+				D799EC4D23CF250C000EE6F5 /* PlayPauseButton.swift */,
 				D7ED675B23BB0F7700847299 /* PlayerSlider.swift */,
 			);
 			path = "Song view";
@@ -326,6 +329,7 @@
 				D7EA82EE23B904F600C092A9 /* SongModel.swift in Sources */,
 				D73A1F5123BAF8DD0060293E /* SongRowView.swift in Sources */,
 				D7ED675523BB052A00847299 /* ActivityIndicator.swift in Sources */,
+				D799EC4E23CF250C000EE6F5 /* PlayPauseButton.swift in Sources */,
 				D7EA82F223B9079500C092A9 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

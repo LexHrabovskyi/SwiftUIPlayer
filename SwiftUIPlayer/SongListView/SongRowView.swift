@@ -17,17 +17,14 @@ struct SongRowView: View {
     var body: some View {
         
         HStack {
-            Image(systemName: self.player.isPlaying && self.playerManager.nowPlaying(song) ? "pause" : "play")
-                .resizable()
-                .frame(width: 24, height: 24)
+            
+            PlayPauseButton(song: song, size: 24)
                 .padding()
-                .onTapGesture {
-                    self.playerManager.playOrPause(song: self.song)
-            }
             
             Text(song.name)
                 .bold()
-                
+             
+            // hidden navigation link (no arrow in row)
             NavigationLink(destination: SongView(song: song)) { Text("").frame(width: 3) }.opacity(0.01)
             
             if self.playerManager.nowLoading(song) {

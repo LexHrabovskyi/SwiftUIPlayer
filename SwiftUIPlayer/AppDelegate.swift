@@ -16,15 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        prepareAudioSession()
         
+        return true
+    }
+    
+    private func prepareAudioSession() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.interruptSpokenAudioAndMixWithOthers, .allowBluetooth])
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             print(error)
         }
-        
-        return true
     }
 
     // MARK: UISceneSession Lifecycle
