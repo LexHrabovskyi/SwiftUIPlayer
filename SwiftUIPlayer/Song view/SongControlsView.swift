@@ -11,7 +11,7 @@ import SwiftUI
 struct SongControlsView: View {
     
     @EnvironmentObject var player: AudioPlayer // TODO: delete it!
-    @EnvironmentObject var playerController: PlayerController
+    @EnvironmentObject var playerManager: PlayerManager
     @Binding var song: Song
     
     var body: some View {
@@ -24,17 +24,17 @@ struct SongControlsView: View {
                 .resizable()
                 .frame(width: 24, height: 24)
                 .onTapGesture {
-                    self.playerController.backward15Sec()
+                    self.playerManager.backward15Sec()
             }
             
             Spacer()
             
-            Image(systemName: self.player.isPlaying && self.playerController.nowPlaying(song) ? "pause" : "play")
+            Image(systemName: self.player.isPlaying && self.playerManager.nowPlaying(song) ? "pause" : "play")
                 .resizable()
                 .frame(width: 36, height: 36)
                 .padding()
                 .onTapGesture {
-                    self.playerController.playOrPause(song: self.song)
+                    self.playerManager.playOrPause(song: self.song)
             }
             
             Spacer()
@@ -43,7 +43,7 @@ struct SongControlsView: View {
                 .resizable()
                 .frame(width: 24, height: 24)
                 .onTapGesture {
-                    self.playerController.forward15Sec()
+                    self.playerManager.forward15Sec()
             }
             
             Spacer()

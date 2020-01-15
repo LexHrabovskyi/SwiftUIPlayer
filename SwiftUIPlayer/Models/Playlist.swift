@@ -11,9 +11,8 @@ import Combine
 
 class Playlist: ObservableObject {
     
-    var newSongBatch = PassthroughSubject<[Song], Never>()
-    
-    var songList: [Song] = [Song]()
+    @Published var listIsLoading = false
+    @Published var songList: [Song] = [Song]()
     @Published var currentSong: Song? = nil
     private var beginningPage: Int = 0
     
@@ -23,6 +22,7 @@ class Playlist: ObservableObject {
     
     func updateList() {
         
+        listIsLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // simulating API delay
             
             var newSongs = [Song]()
@@ -38,7 +38,7 @@ class Playlist: ObservableObject {
             
             self.beginningPage += 1
             self.songList.append(contentsOf: newSongs)
-            self.newSongBatch.send(newSongs)
+            self.listIsLoading = false
             
         }
         

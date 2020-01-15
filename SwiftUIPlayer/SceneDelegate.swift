@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let contentView = SongListView()
             .environmentObject(player)
             .environmentObject(playlist)
-            .environmentObject(PlayerController(player: player, for: playlist))
+            .environmentObject(PlayerManager(player: player, for: playlist))
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

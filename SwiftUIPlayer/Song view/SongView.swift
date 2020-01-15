@@ -11,7 +11,7 @@ import SwiftUI
 struct SongView: View {
     
     @EnvironmentObject var player: AudioPlayer
-    @EnvironmentObject var playerController: PlayerController
+    @EnvironmentObject var playerManager: PlayerManager
     
     @State var song: Song
     
@@ -20,10 +20,6 @@ struct SongView: View {
             
             HStack {
                 Text(song.name)
-                
-                if self.playerController.isLoading {
-                    ActivityIndicator(isAnimating: .constant(true), style: .medium)
-                }
             }
             
             SongControlsView(song: $song)

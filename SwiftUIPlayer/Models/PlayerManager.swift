@@ -1,5 +1,5 @@
 //
-//  PlayerController.swift
+//  PlayerManager.swift
 //  SwiftUIPlayer
 //
 //  Created by Александр on 30.12.2019.
@@ -11,11 +11,20 @@ import AVKit
 import Combine
 import SwiftUI
 
-class PlayerController: ObservableObject {
+class PlayerManager: ObservableObject {
     
     @Published var isLoading: Bool = false
     var loadingStatusChanged: AnyPublisher<Bool, Never>  {
         return $isLoading
+            .eraseToAnyPublisher()
+    }
+    var playingSongPublisher: AnyPublisher<(Song?, Bool), Never> {
+        return player.$isPlaying.map { value in
+            (self.getCurrentSong(), value)
+        }.eraseToAnyPublisher()
+    }
+    var timeChanged: AnyPublisher<Double, Never>  {
+        return player.$currentTimeInSeconds
             .eraseToAnyPublisher()
     }
     
@@ -79,6 +88,10 @@ class PlayerController: ObservableObject {
         return playlist.currentSong!
     }
     
+    func getPlayingDuration() -> Double? {
+        return player.currentItem?.duration.seconds
+    }
+    
     // MARK: checking functions
     func nowPlaying(_ song: Song) -> Bool {
         return player.isPlaying && playlist.currentSong == song
@@ -95,7 +108,7 @@ class PlayerController: ObservableObject {
 }
 
 // MARK: extention for remote contols
-extension PlayerController {
+extension PlayerManager {
     
     var isPlaying: Bool {
         return player.isPlaying

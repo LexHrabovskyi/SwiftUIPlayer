@@ -12,17 +12,32 @@ struct SongListView: View {
     
     @EnvironmentObject var playlist: Playlist
     @EnvironmentObject var player: AudioPlayer
-    @EnvironmentObject var playerController: PlayerController
+    @EnvironmentObject var playerManager: PlayerManager
+    
+    @State private var listIsLoading = false
     
     var body: some View {
         
         NavigationView {
-            List {
-                ForEach(playlist.songList) { song in
-                    SongRowView(song: song)
+            ZStack {
+                List {
+                    ForEach(playlist.songList) { song in
+                        SongRowView(song: song)
+                    }
+                }
+                .navigationBarTitle("From soundhelix.com", displayMode: .inline)
+                .navigationBarItems(trailing: Button(action: {self.playlist.updateList()}, label: {
+                    Image(systemName: "arrow.clockwise.icloud")
+            }))
+                
+                ActivityIndicator(isAnimating: self.$listIsLoading, style: .large)
+                    .onReceive(self.playlist.$listIsLoading) { value in
+                        self.listIsLoading = value
                 }
             }
-            .navigationBarTitle("From soundhelix.com")
+        }
+        .onAppear {
+            self.playlist.updateList()
         }
         
     }
@@ -39,7 +54,7 @@ struct ContentView_Previews: PreviewProvider {
         return SongListView()
             .environmentObject(player)
             .environmentObject(playlist)
-            .environmentObject(PlayerController(player: player, for: playlist))
+            .environmentObject(PlayerManager(player: player, for: playlist))
     }
     
 }

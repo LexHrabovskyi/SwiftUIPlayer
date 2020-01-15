@@ -12,17 +12,17 @@ struct SongRowView: View {
     
     var song: Song
     @EnvironmentObject var player: AudioPlayer
-    @EnvironmentObject var playerController: PlayerController
+    @EnvironmentObject var playerManager: PlayerManager
     
     var body: some View {
         
         HStack {
-            Image(systemName: self.player.isPlaying && self.playerController.nowPlaying(song) ? "pause" : "play")
+            Image(systemName: self.player.isPlaying && self.playerManager.nowPlaying(song) ? "pause" : "play")
                 .resizable()
                 .frame(width: 24, height: 24)
                 .padding()
                 .onTapGesture {
-                    self.playerController.playOrPause(song: self.song)
+                    self.playerManager.playOrPause(song: self.song)
             }
             
             Text(song.name)
@@ -30,7 +30,7 @@ struct SongRowView: View {
                 
             NavigationLink(destination: SongView(song: song)) { Text("").frame(width: 3) }.opacity(0.01)
             
-            if self.playerController.nowLoading(song) {
+            if self.playerManager.nowLoading(song) {
                 Spacer()
                 ActivityIndicator(isAnimating: .constant(true), style: .medium)
             }
@@ -49,6 +49,6 @@ struct SongRowView_Previews: PreviewProvider {
         return SongRowView(song: Song(id: 1, name: "SoundHelix Song 1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"))
             .environmentObject(player)
             .environmentObject(playlist)
-            .environmentObject(PlayerController(player: player, for: playlist))
+            .environmentObject(PlayerManager(player: player, for: playlist))
     }
 }
