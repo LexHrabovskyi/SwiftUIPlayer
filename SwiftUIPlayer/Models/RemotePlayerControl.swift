@@ -82,7 +82,7 @@ final class RemotePlayerControl {
         nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = song.url
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = playerController!.isPlaying
         
-        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = song.lenght
+//        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = song.lenght
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = 0.0
         
         nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo

@@ -56,6 +56,6 @@ struct SongControlsView: View {
 
 struct SongControlsView_Previews: PreviewProvider {
     static var previews: some View {
-        SongControlsView(song: .constant(Song(id: 1, name: "SoundHelix Song 1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", lenght: 372.0)))
+        SongControlsView(song: .constant(Song(id: 1, name: "SoundHelix Song 1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")))
     }
 }

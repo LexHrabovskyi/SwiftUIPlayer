@@ -61,9 +61,11 @@ class PlayerController: ObservableObject {
     }
     
     func forward15Sec() {
-        guard let song = playlist.currentSong else { return }
+        
+        guard let songLenght = player.currentItem?.duration.seconds else { return }
         let currentTime = player.currentTimeInSeconds
-        let forwardTime = song.lenght > currentTime + 15.0 ? currentTime + 15.0 : song.lenght
+        let forwardTime = songLenght > currentTime + 15.0 ? currentTime + 15.0 : songLenght
+        
         rewindTime(to: forwardTime)
     }
     

@@ -14,6 +14,7 @@ struct PlayerSlider: View {
     @EnvironmentObject var playerController: PlayerController
 
     @State private var currentPlayerTime: Double = 0.0
+    @State private var songLenght: Double = 1.0
     var song: Song
     
     var body: some View {
@@ -27,7 +28,7 @@ struct PlayerSlider: View {
             Spacer()
             
             GeometryReader { geometry in
-                Slider(value: self.$currentPlayerTime, in: 0.0...self.song.lenght)
+                Slider(value: self.$currentPlayerTime, in: 0.0...self.songLenght)
                     .onReceive(self.player.timeChanged) { _ in
                         guard self.playerController.isCurrentSong(self.song) else { self.currentPlayerTime = 0.0; return }
                         self.currentPlayerTime = self.player.currentTimeInSeconds
@@ -35,7 +36,7 @@ struct PlayerSlider: View {
                 .gesture(DragGesture(minimumDistance: 0)
                 .onChanged({ value in
                     
-                    let coefficient = abs(Double(self.song.lenght) / Double(geometry.size.width))
+                    let coefficient = abs(Double(self.songLenght) / Double(geometry.size.width))
                     self.playerController.rewindTime(to: Double(value.location.x) * coefficient)
                     
                 }))
@@ -44,7 +45,7 @@ struct PlayerSlider: View {
             
             Spacer()
             
-            Text("\(toMinSec(self.song.lenght))")
+            Text("\(toMinSec(self.songLenght))")
                 .frame(width: 50)
                 .lineLimit(1)
             
@@ -64,6 +65,6 @@ struct PlayerSlider: View {
 
 struct PlayerSlider_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerSlider(song: Song(id: 1, name: "SoundHelix Song 1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", lenght: 372.0))
+        PlayerSlider(song: Song(id: 1, name: "SoundHelix Song 1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"))
     }
 }
